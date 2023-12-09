@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .task-form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .task-form input,
+        .task-form select {
+            flex: 1;
+            padding: 10px;
+        }
+        .task-form button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .task-form button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add new task</h1>
+	<p>Name of the Task</p>
+        <form class="task-form">
+            <input type="text" id="task-name" placeholder="Text" required>
+	</form>
+    </div>
+    <div class="container">
+    <p>Start Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Deadline</p>
+        <form class="task-form">
+            <input type="date" id="start-date" required>
+            <input type="date" id="end-date" required>
+	</form>
+    </div>
+    <div class="container">
+    <p>Status</p>
+        <form class="task-form">
+	    <select id="status" required>
+                <option value="to-do">To Do</option>
+                <option value="in-progress">In Progress</option>
+                <option value="in-review">In Review</option>
+                <option value="completed">Completed</option>
+            </select>
+	</form>
+    </div>
+    <div class="container">
+        <form class="task-form">
+            <button type="submit">Cancel</button>
+            <input type="button" id="bt1" value = "ADD">
+        </form>
+    </div>
+    <div><p class= "output" id = "output1"></p></div>
+    <script>
+        const name = document.getElementById('task-name');
+        const start = document.getElementById('start-date');
+        const end = document.getElementById('end-date');
+        const status = document.getElementById('status');
+        const output = document.getElementById('output1');
+    
+        function fun() {
+            output.innerHTML = `Task Name: ${name.value}<br>
+                                 Start Date: ${start.value}<br>
+                                 End Date: ${end.value}<br>
+                                 Status: ${status.value}`;
+        }
+    
+        const bt1 = document.getElementById('bt1');
+        bt1.addEventListener('click', fun);
+    </script>
+    
+</body>
+</html>
